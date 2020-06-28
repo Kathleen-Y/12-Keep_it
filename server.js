@@ -13,8 +13,6 @@ const connection = mysql.createConnection({
 });
 
 connection.queryPromise = util.promisify(connection.query);
-// connect to the mysql server and sql database
-// Inquirer prompt and promise
 const askeQuestions = function () {
   inquirer
     .prompt({
@@ -37,8 +35,6 @@ const askeQuestions = function () {
       ]
     })
     .then(function (answer) {
-      //console.log(answer);
-      // start of switch statment for user choice
       switch (answer.startQuestions) {
 
         case "View All Employees":
@@ -93,24 +89,20 @@ const askeQuestions = function () {
 };
 askeQuestions();
 
+
 // View all employees.
 function viewEmployees() {
-  // console.log(`Selecting all Employees...\n`);
   connection.query("SELECT  e.ID, e.First_Name, e.Last_Name, r.Title," +
     'r.Salary ,d.Department_Name,concat(m.first_name , (" "), m.last_name) As Manager ' +
     "from employees e  left join employees m on m.id = e.manager_id" +
     " join roles r  join departments d on  r.departmentId = d.id and e.role_id = r.id where  e.first_name != 'None'", (err, res) => {
       if (err) throw err;
-      // console.log(res);
       console.table(res);
       askeQuestions();
     });
 }
 
-// View all roles.
 function viewRoles() {
-
-  // console.log(`Selecting all roles...\n`);
   connection.query(`SELECT * FROM roles where title !='None'`, (err, res) => {
     if (err) throw err;
     // Log all roles of the SELECT statement
@@ -122,7 +114,6 @@ function viewRoles() {
 
 //  View all departments.
 function viewDepartments() {
-  // console.log(`Selecting all departments...\n`);
   connection.query(`SELECT * FROM departments where department_name != 'None'`, (err, res) => {
     if (err) throw err;
     // console.log(res);
@@ -190,7 +181,6 @@ async function addEmployee() {
 
 // Remove Employee.
 async function removeEmployee() {
-
   let employees = await connection.queryPromise('SELECT * FROM employees');
   employees = employees.map(employee => {
     return {
@@ -205,7 +195,6 @@ async function removeEmployee() {
     choices: employees,
     name: 'empId'
   });
-
   await connection.queryPromise(`DELETE FROM employees WHERE id = ?`, emp.empId);
   askeQuestions();
 }
@@ -221,7 +210,7 @@ async function addDepartment() {
       },
     ])
 
-    await connection.queryPromise('INSERT INTO departments (department_name) VALUES (?)', addDepartment.departmentId);
+  await connection.queryPromise('INSERT INTO departments (department_name) VALUES (?)', addDepartment.departmentId);
   }
   catch (err) {
     console.log(err);
@@ -245,7 +234,6 @@ async function removeDepartment() {
     choices: departments,
     name: 'departmentId',
   });
-
   await connection.queryPromise(`DELETE FROM departments WHERE id = ?`, removeDepartment.departmentId);
   askeQuestions();
 }
@@ -342,7 +330,6 @@ async function updateEmployeeRole() {
       choices: roles,
       name: 'role',
     });
-
     console.log(addNewRole.role);
 
     await connection.queryPromise(`update employees set role_id = ? WHERE id =?`,
@@ -401,4 +388,14 @@ async function updateEmployeeManager() {
     console.log(err);
   }
   askeQuestions();
+}
+
+// View The Total Utilized Budget of All Department.
+function viewDepartmentsBudget() {
+  connection.query(`SELECT d.department_name ,sum(r.salary) FROM employees e LEFT JOIN roles r on e.role_id = r.id JOIN ` + `departments d on d.id=r.departmentId where d.department_name !='None' GROUP BY d.department_name `, (err, res) => {
+    if (err) throw err;
+    // console.log(res);
+    console.table(res);
+    askeQuestions();
+  });
 }

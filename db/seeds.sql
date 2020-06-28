@@ -1,21 +1,21 @@
 use employee_tracker_db;
 
 -- Departments --
-insert into departments (depart) values ("Engineering");
-insert into departments (depart) values ("Sales");
-insert into departments (depart) values ("Finance");
-insert into departments (depart) values ("Legal");
-insert into departments (depart) values ("None");
+insert into departments (department_name) values ("Engineering");
+insert into departments (department_name) values ("Sales");
+insert into departments (department_name) values ("Finance");
+insert into departments (department_name) values ("Legal");
+insert into departments (department_name) values ("None");
 
 -- Roles -- 
-insert into roles (title, salary, department_id) values ("Lead Engineer",200000,1);
-insert into roles (title, salary, department_id) values ("Software Engineer",130000,1);
-insert into roles (title, salary, department_id) values ("Sales Lead",10000,2);
-insert into roles (title, salary, department_id) values ("Salesperson",40000,2);
-insert into roles (title, salary, department_id) values ("Accountant",200000,3);
-insert into roles (title, salary, department_id) values ("legal Team Lead",200000,4);
-insert into roles (title, salary, department_id) values ("Lawyer",200000,4);
-insert into roles (title, salary, department_id) values ("None",0,5);
+insert into roles (title, salary, department_id) ("Lead Engineer",200000,1);
+insert into roles (title, salary, department_id) ("Software Engineer",130000,1);
+insert into roles (title, salary, department_id) ("Sales Lead",10000,2);
+insert into roles (title, salary, department_id) ("Salesperson",40000,2);
+insert into roles (title, salary, department_id) ("Accountant", 200000, 3);
+insert into roles (title, salary, department_id) ("legal Team Lead", 200000, 4);
+insert into roles (title, salary, department_id) ("Lawyer", 200000, 4);
+insert into roles (title, salary, department_id) ("None", 0, 5);
 
 -- Employees --
 insert into employees (first_name, last_name, role_id, manager_id) values ("Rosie","Riviter", 1, null);
