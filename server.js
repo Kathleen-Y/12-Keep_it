@@ -13,8 +13,6 @@ const connection = mysql.createConnection({
 });
 
 connection.queryPromise = util.promisify(connection.query);
-// connect to the mysql server and sql database
-// Inquirer prompt and promise
 const askeQuestions = function () {
   inquirer
     .prompt({
@@ -22,9 +20,6 @@ const askeQuestions = function () {
       name: "startQuestions",
       message: "What would you like to do?",
       choices: [
-        "View All Employees",
-        "View All Roles",
-        "View All Departments",
         "Add Employee",
         "Remove Employee",
         "Add Department",
@@ -33,25 +28,12 @@ const askeQuestions = function () {
         "Remove Role",
         "Update Employee Role",
         "Update Employee Manager",
-        "View The Total Utilized Budget of All Departments"
       ]
     })
     .then(function (answer) {
       //console.log(answer);
       // start of switch statment for user choice
       switch (answer.startQuestions) {
-
-        case "View All Employees":
-          viewEmployees();
-          break;
-
-        case "View All Roles":
-          viewRoles();
-          break;
-
-        case "View All Departments":
-          viewDepartments();
-          break;
 
         case "Add Employee":
           addEmployee();
@@ -84,52 +66,10 @@ const askeQuestions = function () {
         case "Update Employee Manager":
           updateEmployeeManager();
           break;
-
-        case "View The Total Utilized Budget of All Departments":
-          viewDepartmentsBudget();
-          break;
       }
     });
 };
 askeQuestions();
-
-// View all employees.
-function viewEmployees() {
-  // console.log(`Selecting all Employees...\n`);
-  connection.query("SELECT  e.ID, e.First_Name, e.Last_Name, r.Title," +
-    'r.Salary ,d.Department_Name,concat(m.first_name , (" "), m.last_name) As Manager ' +
-    "from employees e  left join employees m on m.id = e.manager_id" +
-    " join roles r  join departments d on  r.departmentId = d.id and e.role_id = r.id where  e.first_name != 'None'", (err, res) => {
-      if (err) throw err;
-      // console.log(res);
-      console.table(res);
-      askeQuestions();
-    });
-}
-
-// View all roles.
-function viewRoles() {
-
-  // console.log(`Selecting all roles...\n`);
-  connection.query(`SELECT * FROM roles where title !='None'`, (err, res) => {
-    if (err) throw err;
-    // Log all roles of the SELECT statement
-    // console.log(res);
-    console.table(res);
-    askeQuestions();
-  });
-}
-
-//  View all departments.
-function viewDepartments() {
-  // console.log(`Selecting all departments...\n`);
-  connection.query(`SELECT * FROM departments where department_name != 'None'`, (err, res) => {
-    if (err) throw err;
-    // console.log(res);
-    console.table(res);
-    askeQuestions();
-  });
-}
 
 // Add Employee.
 async function addEmployee() {
@@ -245,7 +185,6 @@ async function removeDepartment() {
     choices: departments,
     name: 'departmentId',
   });
-
   await connection.queryPromise(`DELETE FROM departments WHERE id = ?`, removeDepartment.departmentId);
   askeQuestions();
 }
@@ -342,9 +281,7 @@ async function updateEmployeeRole() {
       choices: roles,
       name: 'role',
     });
-
     console.log(addNewRole.role);
-
     await connection.queryPromise(`update employees set role_id = ? WHERE id =?`,
       [
         addNewRole.role,
@@ -357,7 +294,6 @@ async function updateEmployeeRole() {
   askeQuestions();
 }
 
-// Update employee manager.
 async function updateEmployeeManager() {
   try {
     let employees = await connection.queryPromise('select * from employees');
@@ -389,7 +325,6 @@ async function updateEmployeeManager() {
       choices: managers,
       name: 'manager',
     });
-
 
     await connection.queryPromise(`update employees set manager_id = ? WHERE id =?`,
       [
