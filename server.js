@@ -20,9 +20,6 @@ const askeQuestions = function () {
       name: "startQuestions",
       message: "What would you like to do?",
       choices: [
-        "View All Employees",
-        "View All Roles",
-        "View All Departments",
         "Add Employee",
         "Remove Employee",
         "Add Department",
@@ -31,23 +28,10 @@ const askeQuestions = function () {
         "Remove Role",
         "Update Employee Role",
         "Update Employee Manager",
-        "View The Total Utilized Budget of All Departments"
       ]
     })
     .then(function (answer) {
       switch (answer.startQuestions) {
-
-        case "View All Employees":
-          viewEmployees();
-          break;
-
-        case "View All Roles":
-          viewRoles();
-          break;
-
-        case "View All Departments":
-          viewDepartments();
-          break;
 
         case "Add Employee":
           addEmployee();
@@ -80,15 +64,12 @@ const askeQuestions = function () {
         case "Update Employee Manager":
           updateEmployeeManager();
           break;
-
-        case "View The Total Utilized Budget of All Departments":
-          viewDepartmentsBudget();
-          break;
       }
     });
 };
 askeQuestions();
 
+<<<<<<< HEAD
 
 // View all employees.
 function viewEmployees() {
@@ -122,6 +103,8 @@ function viewDepartments() {
   });
 }
 
+=======
+>>>>>>> d699b40455d0d7c0b995c0bb9605fbc17fc7947d
 // Add Employee.
 async function addEmployee() {
   try {
@@ -331,7 +314,6 @@ async function updateEmployeeRole() {
       name: 'role',
     });
     console.log(addNewRole.role);
-
     await connection.queryPromise(`update employees set role_id = ? WHERE id =?`,
       [
         addNewRole.role,
@@ -344,7 +326,6 @@ async function updateEmployeeRole() {
   askeQuestions();
 }
 
-// Update employee manager.
 async function updateEmployeeManager() {
   try {
     let employees = await connection.queryPromise('select * from employees');
@@ -377,7 +358,6 @@ async function updateEmployeeManager() {
       name: 'manager',
     });
 
-
     await connection.queryPromise(`update employees set manager_id = ? WHERE id =?`,
       [
         addNewManager.manager,
@@ -389,6 +369,7 @@ async function updateEmployeeManager() {
   }
   askeQuestions();
 }
+<<<<<<< HEAD
 
 // View The Total Utilized Budget of All Department.
 function viewDepartmentsBudget() {
@@ -399,3 +380,5 @@ function viewDepartmentsBudget() {
     askeQuestions();
   });
 }
+=======
+>>>>>>> d699b40455d0d7c0b995c0bb9605fbc17fc7947d

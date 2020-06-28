@@ -1,9 +1,7 @@
 # Unit 12 MySQL Homework: Employee Tracker
-
  Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, build a solution for managing a company's employees using node, inquirer, and MySQL.
 
 ## Instructions
-
 Design the following database schema containing three tables:
 
 * **department**:
