@@ -43,6 +43,6 @@ So that I can organize and plan my business
 
 # Author
 Kathleen Yoannon
+================
 <a href="mailto:kyoannon@gmail.com">Send Email</a>
-
-
+![twitter](https://twitter.com/Ros3p3tal)"twitterhandle" twitter
