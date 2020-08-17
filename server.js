@@ -69,8 +69,6 @@ const askeQuestions = function () {
 };
 askeQuestions();
 
-<<<<<<< HEAD
-
 // View all employees.
 function viewEmployees() {
   connection.query("SELECT  e.ID, e.First_Name, e.Last_Name, r.Title," +
@@ -86,14 +84,11 @@ function viewEmployees() {
 function viewRoles() {
   connection.query(`SELECT * FROM roles where title !='None'`, (err, res) => {
     if (err) throw err;
-    // Log all roles of the SELECT statement
-    // console.log(res);
     console.table(res);
     askeQuestions();
   });
 }
 
-//  View all departments.
 function viewDepartments() {
   connection.query(`SELECT * FROM departments where department_name != 'None'`, (err, res) => {
     if (err) throw err;
@@ -103,9 +98,6 @@ function viewDepartments() {
   });
 }
 
-=======
->>>>>>> d699b40455d0d7c0b995c0bb9605fbc17fc7947d
-// Add Employee.
 async function addEmployee() {
   try {
     const employee = await inquirer.prompt([
@@ -182,7 +174,6 @@ async function removeEmployee() {
   askeQuestions();
 }
 
-// Add Department.
 async function addDepartment() {
   try {
     const addDepartment = await inquirer.prompt([
@@ -369,7 +360,6 @@ async function updateEmployeeManager() {
   }
   askeQuestions();
 }
-<<<<<<< HEAD
 
 // View The Total Utilized Budget of All Department.
 function viewDepartmentsBudget() {
@@ -380,5 +370,3 @@ function viewDepartmentsBudget() {
     askeQuestions();
   });
 }
-=======
->>>>>>> d699b40455d0d7c0b995c0bb9605fbc17fc7947d
