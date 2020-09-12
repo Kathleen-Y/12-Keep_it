@@ -5,14 +5,8 @@ const table = require("console.table");
 // // create the connection information for the sql database
 const connection = mysql.createConnection({
   host: "localhost",
-
-  // Port
   port: 3306,
-
-  // Your username
   user: "root",
-
-  // Your password
   password: "Farm123#*",
   database: "employee_tracker_db"
 });
