@@ -37,6 +37,10 @@ So that I can organize and plan my business
 
 ## Features
 * CRUD method
+- create
+- read
+- update
+- delete
 
 ## Example Gif
 ![](public/assets/img/12-Keep_it.gif)
@@ -44,5 +48,5 @@ So that I can organize and plan my business
 # Author
 Kathleen Yoannon
 ================
-<a href="mailto:kyoannon@gmail.com">Send Email</a>
+![email](mailto:kyoannon@gmail.com)
 ![twitter](https://twitter.com/Ros3p3tal)
