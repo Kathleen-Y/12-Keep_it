@@ -1,17 +1,15 @@
 DROP DATABASE IF EXISTS employee_tracker_db;
--- Create the database movie_planner_db and specified it for use.
 CREATE DATABASE employee_tracker_db;
 
 USE employee_tracker_db;
--- Create the table plans.
 CREATE TABLE departments (
-  id INT NOT NULL AUTO_INCREMENT,
+ id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   department_name VARCHAR(30) not null,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE roles (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL(6,2) NOT NULL,
   departmentId INT,
@@ -19,13 +17,14 @@ CREATE TABLE roles (
   FOREIGN KEY(departmentId) REFERENCES departments(id)
 );
 
-CREATE TABLE employees (
-  id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE employee (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
-  role_id INT,
-  manager_id INT,
-  PRIMARY KEY (id),
-  FOREIGN KEY (role_id) REFERENCES roles(id),
-  FOREIGN KEY (manager_id) REFERENCES employees(id)
+  role_id INT UNSIGNED NOT NULL,
+  INDEX role_ind (role_id),
+  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE CASCADE,
+  manager_id INT UNSIGNED,
+  INDEX man_ind (manager_id),
+  CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );
