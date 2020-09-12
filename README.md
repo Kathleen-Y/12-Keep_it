@@ -4,7 +4,7 @@
  Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, 
  build a solution for managing a company's employees using node, inquirer, and MySQL.
 
-[Click here to try it](https://.herokuapp.com/)
+[Click here to try it](https://employeetr.herokuapp.com/)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Kathleen-Y/12-Keep_it?logo=github)
 
@@ -33,7 +33,7 @@ So that I can organize and plan my business
 > 2. run node server.js
 
 ## Instructions
-> Open your browser and go to [12-Keep_it](https://.herokuapp.com/). Choose or input the employees information and view departments in your company. 
+> Open your browser and go to [12-Keep_it](https://employeetr.herokuapp.com/). Choose or input the employees information and view departments in your company. 
 
 ## Features
 * CRUD method
@@ -45,4 +45,4 @@ So that I can organize and plan my business
 Kathleen Yoannon
 ================
 <a href="mailto:kyoannon@gmail.com">Send Email</a>
-![twitter](https://twitter.com/Ros3p3tal)"twitterhandle" twitter
+![twitter](https://twitter.com/Ros3p3tal)
