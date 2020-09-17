@@ -48,5 +48,12 @@ So that I can organize and plan my business
 # Author
 Kathleen Yoannon
 ================
-![email](mailto:kyoannon@gmail.com)
 ![twitter](https://twitter.com/Ros3p3tal)
+======
+
+* Homepage: 
+* e-mail: kyoannon@gmail.com
+* Twitter: [@Ros3p3tal](https://twitter.com/Ros3p3tal "Ros3p3tal on twitter")
+
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=username&url=https://github.com/username/sw-name&title=sw-name&language=&tags=github&category=software) 
+
