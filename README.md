@@ -42,9 +42,6 @@ So that I can organize and plan my business
 - update
 - delete
 
-================
 ## Contact
 * Homepage: [@profile](https://github.com/Kathleen-Y)
 * Twitter: [@Ros3p3tal](https://twitter.com/Ros3p3tal)
-
-======
