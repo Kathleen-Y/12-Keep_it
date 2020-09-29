@@ -18,12 +18,8 @@ So that I can organize and plan my business
 2. Node.js
 2. Inquirer
 
-## Installation
-> 1.npm init // 2.npm install inquirer, and MySQL.
-> 2. run node server.js
-
-## Instructions
-[Click here to try it](https://employeetr.herokuapp.com/)
+## Demo
+[click here](https://employeetr.herokuapp.com/)
 
 ## Contact
 * Homepage: [@profile](https://github.com/Kathleen-Y)
