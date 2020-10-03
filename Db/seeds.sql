@@ -21,5 +21,3 @@ VALUES
     ('Alyse', 'Chan', 2, 1),
     ('Joe', 'Igor', 3, NULL),
     ('Ron', 'Xeno', 5, NULL);
-
-
