@@ -1,10 +1,10 @@
-![](https://img.shields.io/badge/Employee-start-181717?style=social&logo=mySQL)
+![](https://img.shields.io/badge/Employee-start-181717?style=social&logo=mysql2)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Kathleen-Y/12-Keep_it?logo=github)
 ![Github](https://img.shields.io/badge/Tracker-start-181717?style=plastic&logo=nodemon)
 
 ## Keep_it
  Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, 
- build a solution for managing a company's employees using node, inquirer, and MySQL.
+ build a solution for managing a company's employees using node, inquirer, and mysql2.
 <hr >
 
 ```
@@ -14,12 +14,12 @@ So that I can organize and plan my business
 ```
 
 # Technologies Used
-1. MySQL
+1. mysql2
 2. Node.js
 2. Inquirer
 
 ## Installation
-> 1.npm init // 2.npm install inquirer, and MySQL.
+> 1.npm init // 2.npm install inquirer, and mysql2.
 > 2. run node server.js
 
 ## Instructions

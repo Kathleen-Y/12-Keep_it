@@ -1,11 +1,11 @@
 {
-  "name": "employee_tracker_db",
+  "name": "12-keep_it",
   "version": "1.0.0",
-  "description": "Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, build a solution for managing a company's employees using node, inquirer, and MySQL.",
+  "description": "Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, build a solution for managing a company's employees using node, inquirer, and mysql2.",
   "main": "server.js",
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,6 @@
     "console.table": "^0.10.0",
     "init": "^0.1.2",
     "inquirer": "^7.3.3",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.2.5"
   }
 }

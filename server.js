@@ -1,9 +1,9 @@
-const mysql = require("mysql");
+const mysql2 = require("mysql2");
 const inquirer = require("inquirer");
+const employee_tracker_db = require("./Db");
 const table = require("console.table");
 
-// // create the connection information for the sql database
-const connection = mysql.createConnection({
+const connection = mysql2.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
@@ -11,7 +11,6 @@ const connection = mysql.createConnection({
   database: "employee_tracker_db"
 });
 
-//connect to the mysql server and sql database
 connection.connect(err => {
   if (err) throw err;
   runApp();
@@ -108,7 +107,7 @@ const viewEmployees = () => {
 };
 
 const employeesByDepartment = () => {
-  
+
   let dpt = [];
   connection.query(`SELECT * FROM department`, (err, res) => {
     res.forEach(element => {
@@ -137,6 +136,7 @@ const viewDepartments = () => {
     runApp();
   })
 }
+
 
 const viewRoles = () => {
   connection.query(`SELECT * FROM role`, (err, res) => {
@@ -193,7 +193,7 @@ const addEmployee = () => {
             }
           ])
           .then(response => {
-        
+            
             let roleCode = parseInt(response.role);
             let managerCode = parseInt(response.manager);
             connection.query(
@@ -332,6 +332,7 @@ const removeEmployee = () => {
         })
       })
   });
+
 }
 
 
@@ -386,7 +387,7 @@ const employeesByManager = () => {
     res.forEach(element => {
       manager.push(element.manager);
     })
-    
+
     let nonDuplicate = [...new Set(manager)]
     inquirer
       .prompt({
