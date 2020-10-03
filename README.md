@@ -4,7 +4,7 @@
 
 ## Keep_it
  Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, 
- build a solution for managing a company's employees using node, inquirer, and mysql2.
+ build a solution for managing a company's employees using node, inquirer, and mysql.
 <hr >
 
 ```

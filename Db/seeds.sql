@@ -1,5 +1,5 @@
-CREATE DATABASE employee_tracker_db;
-USE employee_tracker_db;
+CREATE DATABASE employ_track_db;
+USE employ_track_db;
 
 INSERT INTO department (name)
 VALUES

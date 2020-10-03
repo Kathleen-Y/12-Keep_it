@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "Farm123#*",
-  database: "employee_tracker_db"
+  database: "employ_track_db"
 });
 
 connection.connect(function(err) {
@@ -149,7 +149,7 @@ function viewEmployee() {
 }
 
 function addEmployee() {
-  connection.query("SELECT title FROM employee_tracker_db.role", function(err, results){
+  connection.query("SELECT title FROM employ_track_db.role", function(err, results){
     const roles = results.map(role=> role.title);
     
       inquirer
@@ -179,7 +179,7 @@ function addEmployee() {
         const manager = answer.title.split("-").join(",");
         const id_manager = manager[0];
 
-        let query = "INSERT INTO employee_tracker_db.employee(first_name, last_name, role_id, manager_id) values(?, ?, ?, ?)";
+        let query = "INSERT INTO employ_track_db.employee(first_name, last_name, role_id, manager_id) values(?, ?, ?, ?)";
         connection.query(query, [answer.first_name, answer.last_name, id, id_manager], function(err, res) {
           if (err) throw err;
           runSearch();
@@ -189,7 +189,7 @@ function addEmployee() {
 };
 
 function updateEmployee() {
-  connection.query("SELECT first_name FROM employee_tracker_db.employee", function(err, results){
+  connection.query("SELECT first_name FROM employ_track_db.employee", function(err, results){
     const employees = results.map(employee => employee.first_name)
     
     inquirer
@@ -206,12 +206,12 @@ function updateEmployee() {
         console.log("THIS IS NEW EMPLOYEE ROLE " + newEmployeeRole);
 
 
-        let query = "INSERT INTO employee_tracker_db.employee(first_name) values(?)";
+        let query = "INSERT INTO employ_track_db.employee(first_name) values(?)";
         connection.query(query, [newEmployeeRole], function(err, results) {
           if (err) throw err;
         })
 
-  connection.query("SELECT title FROM employee_tracker_db.role", function(err, results){
+  connection.query("SELECT title FROM employ_track_db.role", function(err, results){
     const roles = results.map(role => role.title);
 
     inquirer
@@ -228,7 +228,7 @@ function updateEmployee() {
         const role_id = answer.role_id
         const id = role_id[0];
 
-        let query = "INSERT INTO employee_tracker_db.employee(first_name, role_id) values(?, ?)";
+        let query = "INSERT INTO employ_track_db.employee(first_name, role_id) values(?, ?)";
         connection.query(query, [newEmployeeRole, id], function(err, res) {
           if (err) throw err;
           runSearch();
