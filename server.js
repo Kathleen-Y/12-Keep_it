@@ -62,12 +62,14 @@ function runSearch() {
       }
     });
 }
+
 function viewRole() {
     connection.query("SELECT * FROM role", function(err, results){
         console.table(results);
         runSearch();
     })
 }
+
 function addDepartment() {
   inquirer
     .prompt({
@@ -145,6 +147,7 @@ function viewEmployee() {
     runSearch();
   });
 }
+
 function addEmployee() {
   connection.query("SELECT title FROM employee_tracker_db.role", function(err, results){
     const roles = results.map(role=> role.title);
@@ -167,9 +170,8 @@ function addEmployee() {
           message: "What is the employee's role?",
           choices: roles
         },
-        
-          
       ])
+
       .then(function(answer) {
         const role_id = answer.title.split("-")
         const id = role_id[0];
@@ -221,6 +223,7 @@ function updateEmployee() {
           choices: roles
         }
       ])
+      
       .then(function(answer) {
         const role_id = answer.role_id
         const id = role_id[0];

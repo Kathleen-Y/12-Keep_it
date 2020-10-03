@@ -9,18 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kathleen-Y/employee_tracker_db.git"
+    "url": "git+https://github.com/Kathleen-Y/12-Keep_It.git"
   },
-  "author": "",
+  "author": "kjy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kathleen-Y/employee_tracker_db/issues"
+    "url": "https://github.com/Kathleen-Y/12-Keep_It/issues"
   },
-  "homepage": "https://github.com/Kathleen-Y/employee_tracker_db#readme",
+  "homepage": "https://github.com/Kathleen-Y/12-Keep_It#readme",
   "dependencies": {
-    "console.table": "^0.10.0",
     "init": "^0.1.2",
     "inquirer": "^7.3.3",
-    "mysql2": "^2.2.5"
+    "mysql": "^2.2.5"
   }
 }
