@@ -8,13 +8,11 @@
 <hr >
 
 ```
-As a business owner
-I want to be able to view and manage the departments, roles, and employees in my company
-So that I can organize and plan my business
+As a business owner, I WANT to be able to view and manage the departments, roles, and employees in my company. SO that I can organize and plan my business.
 ```
 
 # Technologies Used
-1. mysql2
+1. mysql
 2. Node.js
 2. Inquirer
 
